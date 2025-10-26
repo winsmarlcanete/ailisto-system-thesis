@@ -1,4 +1,3 @@
 #Ignore dataset folders
 
-ailisto-system-thesis/student_detection/datasets/SCB-Handrise-Read-write/images
-ailisto-system-thesis/student_detection/datasets/SCB-Handrise-Read-write/labels
+student_detection/datasets/
