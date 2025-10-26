@@ -1,0 +1,4 @@
+#Ignore dataset folders
+
+student_detection/datasets/SCB-Handrise-Read-write/images
+student_detection/datasets/SCB-Handrise-Read-write/labels
