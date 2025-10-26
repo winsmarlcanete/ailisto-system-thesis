@@ -1,15 +1,35 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 <head>
-  <title>Ai-Listo Prototype</title>
+  <meta charset="utf-8">
+  <title>AI-Listo — Live</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    img { border: 1px solid #ccc; background: #000; }
+    pre { background:#f6f6f6; padding:10px; border-radius:6px; }
+  </style>
 </head>
 <body>
-    <h1>Welcome to Ai-Listo!</h1>
-    <p>Real-time Student Attention Classification State</p>
-    <h2>Upload Classroom Video</h2>
-    <form method="POST" action="/upload" enctype="multipart/form-data">
-    <input type="file" name="file" accept="video/*" required>
-    <button type="submit">Analyze</button>
-  </form>
+  <h1>AI-Listo — Live Camera</h1>
+  <div>
+    <img id="video" src="{{ url_for('video_feed') }}" width="800" />
+  </div>
+
+  <h2>Quick stats</h2>
+  <pre id="stats">Loading...</pre>
+
+  <script>
+  async function fetchStats(){
+    try {
+      const res = await fetch('/api/stats');
+      const json = await res.json();
+      document.getElementById('stats').textContent = JSON.stringify(json, null, 2);
+    } catch (e) {
+      document.getElementById('stats').textContent = 'Error fetching stats';
+    }
+  }
+  setInterval(fetchStats, 2000);
+  fetchStats();
+  </script>
 </body>
 </html>
