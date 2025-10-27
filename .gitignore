@@ -1,3 +1,4 @@
 #Ignore dataset folders
 
 student_detection/datasets/
+student_detection/test_videos/
