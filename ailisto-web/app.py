@@ -21,7 +21,7 @@ class Detection(db.Model):
     x1 = db.Column(db.Integer); y1 = db.Column(db.Integer)
     x2 = db.Column(db.Integer); y2 = db.Column(db.Integer)
 
-camera = VideoCamera(src=1)  # 0 = default webcam
+# camera = VideoCamera(src=1)  # 0 = default webcam
 model = Model(device='cpu')  # update device as needed
 
 def draw_boxes(frame, detections):
@@ -32,6 +32,18 @@ def draw_boxes(frame, detections):
         cv2.putText(frame, label_txt, (x1, y1-10),
                     cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255,255,255), 1)
     return frame
+
+def gen_frame():
+    camera = cv2.VideoCapture(1)
+    while True:
+        success, frame = camera.read()
+        if not success:
+            break
+        else:
+            ret, buffer = cv2.imencode('.jpg', frame)
+            frame = buffer.tobytes()
+            yield (b'--frame\r\n'
+                   b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
 
 # def generate_frames():
 #     while True:
@@ -62,29 +74,28 @@ def draw_boxes(frame, detections):
 def index():
     return render_template('index.html')
 
-def gen(camera):
-    while True:
-        frame = camera.get_frame()
-        if frame is None:
-            time.sleep(0.01)
-            continue
+# def gen(camera):
+#     while True:
+#         frame = camera.get_frame()
+#         if frame is None:
+#             time.sleep(0.01)
+#             continue
         
-        # Convert color after confirming frame exists
-        frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-        ret, jpeg = cv2.imencode('.jpg', frame_rgb)
-        if not ret:
-            time.sleep(0.01)
-            continue
+#         # Convert color after confirming frame exists
+#         frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+#         ret, jpeg = cv2.imencode('.jpg', frame_rgb)
+#         if not ret:
+#             time.sleep(0.01)
+#             continue
 
-        yield (b'--frame\r\n'
-               b'Content-Type: image/jpeg\r\n\r\n' + jpeg.tobytes() + b'\r\n')
-        time.sleep(0.03)  # ~30 fps
+#         yield (b'--frame\r\n'
+#                b'Content-Type: image/jpeg\r\n\r\n' + jpeg.tobytes() + b'\r\n')
+#         time.sleep(0.03)  # ~30 fps
 
 
 @app.route('/video_feed')
 def video_feed():
-    return Response(gen(camera),
-                    mimetype='multipart/x-mixed-replace; boundary=frame')
+    return Response(gen_frame(), mimetype='multipart/x-mixed-replace; boundary=frame')
 
 @app.route('/api/stats')
 def stats():
