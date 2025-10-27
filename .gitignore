@@ -4,3 +4,4 @@ student_detection/datasets/
 
 # Ignore virtual environment folder
 .venv/
+student_detection/test_videos/

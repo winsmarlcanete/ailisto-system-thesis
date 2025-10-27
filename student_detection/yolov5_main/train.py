@@ -2,13 +2,13 @@ import torch
 from ultralytics import YOLO
 
 # === 1. Define paths ===
-DATA_YAML = "student_detection/datasets/SCB5-Handrise-Read-write/SCB5-Handrise-Read-write.yaml"
+DATA_YAML = "student_detection/datasets/student/data.yaml"
 PROJECT = "student_detection/yolov5_main/runs/train"
-WEIGHTS = "yolov5m.pt"
-NAME = "yolov5m_SCB5-Handrise-Read-write"
+WEIGHTS = "student_detection/yolov5_main/runs/train/yolov5m_student/weights/best.pt"
+NAME = "yolov5m_student"
 
 # === 2. Training configuration ===
-EPOCHS = 100
+EPOCHS = 50
 IMG_SIZE = 640
 BATCH_SIZE = 8
 DEVICE = 0 if torch.cuda.is_available() else 'cpu'
