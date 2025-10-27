@@ -7,7 +7,12 @@ from camera import VideoCamera
 from model_inference import Model
 import cv2
 
+
+
 app = Flask(__name__, instance_relative_config=True)
+
+os.makedirs(app.instance_path, exist_ok=True)
+
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(app.instance_path, 'ai-listo.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
