@@ -58,12 +58,17 @@ pre {
   margin-top: 0;
 }
 
-.fullscreen-btn {
+.video-controls {
   position: absolute;
   bottom: 20px;
   right: 20px;
   z-index: 10;
-  background: rgba(30, 41, 59, 0.8);  /* semi-transparent background */
+  display: flex;
+  gap: 10px;
+}
+
+.control-btn {
+  background: rgba(30, 41, 59, 0.8);
   border: 2px solid #22D3EE;
   color: #22D3EE;
   padding: 10px;
@@ -76,13 +81,13 @@ pre {
   backdrop-filter: blur(4px);
 }
 
-.fullscreen-btn:hover {
+.control-btn:hover {
   background: #22D3EE;
   color: #1E293B;
   transform: scale(1.05);
 }
 
-.fullscreen-btn svg {
+.control-btn svg {
   width: 20px;
   height: 20px;
 }
