@@ -1,29 +1,43 @@
-body {
-  margin: 0;
-  font-family: "Lato", sans-serif;
-   
-}
-
 .sidebar {
   margin: 0;
   padding: 0;
   width: 200px;
-  background-color: #f1f1f1;
+  background-color: #111240;
   position: fixed;
   height: 100%;
   overflow: auto;
 }
 
+.sidebar .ailisto-sidebar-title {
+  text-align: center;
+  font-size: 24px;
+  padding: 16px;
+  padding-top: 25px;
+  font-weight: bold;
+  color: #ffffff;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 60px;
+  margin-top: 0;
+  border-bottom: 0px solid #ccc;
+}
+
 .sidebar a {
   display: block;
-  color: black;
+  color: rgb(255, 255, 255);
   padding: 16px;
   text-decoration: none;
+  text-align: center;
 }
  
 .sidebar a.active {
-  background-color: #04AA6D;
-  color: white;
+  background: linear-gradient(to right, #FF4B4B, #FAB637);
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  
+  border-radius: 15px;           /* rounded corners (optional) */
+  padding: 14px 16px;           /* adjust padding so it looks neat */
+  margin: 4px;                  /* optional: add space between links */
+  display: block; 
 }
 
 .sidebar a:hover:not(.active) {
