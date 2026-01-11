@@ -5,28 +5,23 @@
         <title>Ai-Listo</title>
         <meta name="description" content="Ai-Listo: An AI-powered system for student detection and analysis using advanced computer vision technology.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/sidebar.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
     </head>
     <body>
-        <header class ="header">
-            <div class="container">
-                <div class="logo">
-                    <h1>Ai-Listo</h1>
-                </div>
-                <nav>
-                    <ul>
-                        <li><a href="/liveSession">Live Session</a></li>
-                        <li><a href="/history">History</a></li>
-                        <li><a href="/profile">Profile</a></li>
-                        <li><a href="/settings">Settings</a></li>
-                        <li><a href="/about">About</a></li>
-                    </ul>
-                </nav>
-            </div>
+        
+    <div class="sidebar">
+        <a href="/liveSession">Live Session</a>
+        <a class="active" href="/">Dashboard</a>
+        <a href="/history">History</a>
+        <a href="/profile">Profile</a>
+        <a href="/settings">Settings</a>
+        <a href="/about">About</a>
+    </div>
 
-        </header>
-        <script src="" async defer>
-
-        </script>
+    <h1 class="page-title">Dashboard</h1>
+    <div class="content">
+        <h2>Welcome to Ai-Listo Dashboard</h2>
+        <p>This is the main dashboard page content.</p>
     </body>
 </html>
