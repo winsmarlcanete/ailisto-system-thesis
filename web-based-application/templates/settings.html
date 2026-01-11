@@ -5,8 +5,22 @@
     <title>Settings- Ai-Listo</title>
     <meta name="description" content="Settings page for Ai-Listo: An AI-powered system for student detection and analysis using advanced computer vision technology.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/sidebar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
 </head>
 <body>
-    <h1>Settings Page</h1>
+    <div class="sidebar">
+        <a href="/liveSession">Live Session</a>
+        <a href="/">Dashboard</a>
+        <a href="/history">History</a>
+        <a href="/profile">Profile</a>
+        <a class="active" href="/settings">Settings</a>
+        <a href="/about">About</a>
+    </div>
+
+    <h1 class="page-title">Settings Page</h1>
+    <div class="content">
+        <h2>Settings Content</h2>
+        <p>This is the settings page content.</p>
+    </div>
 </body>

@@ -5,8 +5,24 @@
     <title>Live Session - Ai-Listo</title>
     <meta name="description" content="Live session page for Ai-Listo: An AI-powered system for student detection and analysis using advanced computer vision technology.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/sidebar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
 </head>
 <body>
-    <h1>Live Session Page</h1>
+    <div class="sidebar">
+        <a class="active" href="/liveSession">Live Session</a>
+        <a href="/">Dashboard</a>
+        <a href="/history">History</a>
+        <a href="/profile">Profile</a>
+        <a href="/settings">Settings</a>
+        <a href="/about">About</a>
+    </div>
+
+    <h1 class="page-title">Live Session Page</h1>
+    <div class="content">
+        <h2>Responsive Sidebar Example</h2>
+        <p>This example use media queries to transform the sidebar to a top navigation bar when the screen size is 700px or less.</p>
+        <p>We have also added a media query for screens that are 400px or less, which will vertically stack and center the navigation links.</p>
+        <h3>Resize the browser window to see the effect.</h3>
+    </div>
 </body>

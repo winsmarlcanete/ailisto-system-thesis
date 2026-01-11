@@ -1,0 +1,28 @@
+body {
+  margin: 0;
+  font-family: "Lato", sans-serif;
+
+}
+
+.page-title {
+  font-size:32px;
+  margin-left: 200px;
+  padding: 1px 16px;
+}
+
+div.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+}
+
+@media screen and (max-width: 700px) {
+  .page-title {
+    margin-left: 0;
+  }
+  div.content {
+    margin-left: 0;
+  }
+}
+
+
+

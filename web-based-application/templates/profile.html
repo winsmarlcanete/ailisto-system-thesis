@@ -5,8 +5,22 @@
     <title>Profile - Ai-Listo</title>
     <meta name="description" content="Profile page for Ai-Listo: An AI-powered system for student detection and analysis using advanced computer vision technology.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/sidebar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
 </head>
 <body>
-    <h1>Profile Page</h1>
+    <div class="sidebar">
+        <a href="/liveSession">Live Session</a>
+        <a href="/">Dashboard</a>
+        <a href="/history">History</a>
+        <a class="active" href="/profile">Profile</a>
+        <a href="/settings">Settings</a>
+        <a href="/about">About</a>
+    </div>
+
+    <h1 class="page-title">Profile Page</h1>
+    <div class="content">
+        <h2>Profile Content</h2>
+        <p>This is the profile page content.</p>
+    </div>
 </body>
