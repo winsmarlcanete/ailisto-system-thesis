@@ -1,7 +1,7 @@
 body {
   margin: 0;
   font-family: "Lato", sans-serif;
-
+  background-color: #F5F5F5;
 }
 
 .page-title {
@@ -16,7 +16,13 @@ body {
 div.content {
   margin-left: 200px;
   padding: 1px 16px;
-  margin-top: 20px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  height: 100vh;
 }
 
 @media screen and (max-width: 700px) {
@@ -26,6 +32,12 @@ div.content {
   div.content {
     margin-left: 0;
   }
+}
+
+.session-controls button {
+  padding: 15px 25px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 
