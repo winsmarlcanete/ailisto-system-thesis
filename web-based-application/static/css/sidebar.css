@@ -33,10 +33,9 @@
   background: linear-gradient(to right, #FF4B4B, #FAB637);
   color: rgb(0, 0, 0);
   font-weight: bold;
-  
-  border-radius: 15px;           /* rounded corners (optional) */
-  padding: 14px 16px;           /* adjust padding so it looks neat */
-  margin: 4px;                  /* optional: add space between links */
+  border-radius: 6px;           
+  padding: 5px;          
+  margin: 20px;                 
   display: block; 
 }
 
