@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/sidebar.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/button.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/video.css') }}">
 </head>
 <body>
     <div class="sidebar">
@@ -23,7 +24,24 @@
 
     <h1 class="page-title">Live Session</h1>
     <div class="content">
-        <div><button class="btn"> Select Camera</button></div>
+        <div>
+            <button id="select-camera-btn" class="btn">Select Camera</button>
+            <select id="user-camera-select" style="display: none;">
+                <!-- Camera Options will be populated here -->
+            </select>
+        </div>
+        <div class="video-container" style="display: none;">
+            <video id="user-video" autoplay></video>
+        </div>
+        <div class="session-controls">
+            <button id="start-btn" class="btn" disabled>Start</button>
+            <button id="pause-btn" class="btn" disabled>Pause</button>
+            <button id="end-btn" class="btn" disabled>End</button>
+            <button id="save-btn" class="btn" disabled>Save</button>
+        </div>
+        
+        <script src="{{ url_for('static', filename='js/camera.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/session-controls.js') }}"></script>
     </div>
     
     
