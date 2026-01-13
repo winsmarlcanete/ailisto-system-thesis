@@ -39,11 +39,23 @@
             <button id="end-btn" class="btn" disabled>End</button>
             <button id="save-btn" class="btn" disabled>Save</button>
         </div>
-        
+        <div>
+            <video id="annotated-video" autoplay></video>
+        </div>
+        <h2>Live Attention Summary</h2>
+        <div class="content-box">
+            <ul>
+                <li><b>Class Attention:</b> <span id="class-attention">0</span>%</li>
+                <li><b>Highest Attention:</b> <span id="highest-attention">0</span> students</li>
+                <li><b>High Attention:</b> <span id="high-attention">0</span> students</li>
+                <li><b>Medium Attention:</b> <span id="medium-attention">0</span> students</li>
+                <li><b>Low Attention:</b> <span id="low-attention">0</span> students</li>
+                <li><b>Lowest Attention:</b> <span id="lowest-attention">0</span> students</li>
+                <li><b>Detected Students:</b> <span id="detected-students">0</span> students</li>
+            </ul>
+        </div>
         <script src="{{ url_for('static', filename='js/camera.js') }}"></script>
         <script src="{{ url_for('static', filename='js/session-controls.js') }}"></script>
     </div>
-    
-    
 </body>
 </html>
