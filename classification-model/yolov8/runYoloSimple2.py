@@ -7,7 +7,7 @@ import torch
 # -----------------------------
 # CONFIG
 # -----------------------------
-VIDEO_PATH = "data/videos/classroom_sample.mp4"
+VIDEO_PATH = r"C:\Users\Jerwin\Documents\Thesis\ailisto-system-thesis\classification-model\videos\Part 1 to 3.mp4"
 MODEL_PATH = "yolov8s.pt"
 OUTPUT_DIR = "outputs"
 CONF_THRES = 0.25

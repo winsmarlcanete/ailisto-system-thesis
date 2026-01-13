@@ -2,7 +2,7 @@ from ultralytics import YOLO
 import torch
 
 def main():
-    video_path = "data/videos/classroom_sample.mp4"  # Palitan mo to jer
+    video_path = r"C:\Users\Jerwin\Documents\Thesis\ailisto-system-thesis\classification-model\videos\Part 1 to 3.mp4"  # Palitan mo to jer
     model_path = "yolov8m.pt" 
     output_dir = "output/runs/simple"
 
