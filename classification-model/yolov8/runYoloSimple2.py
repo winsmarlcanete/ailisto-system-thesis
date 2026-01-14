@@ -9,7 +9,7 @@ import torch
 # -----------------------------
 VIDEO_PATH = r"C:\Users\Jerwin\Documents\Thesis\ailisto-system-thesis\classification-model\videos\Part 1 to 3.mp4"
 MODEL_PATH = "yolov8s.pt"
-OUTPUT_DIR = "outputs"
+OUTPUT_DIR = "output/runs/simple2"
 CONF_THRES = 0.25
 IOU_THRES = 0.5
 
