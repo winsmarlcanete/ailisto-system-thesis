@@ -2,8 +2,8 @@ from ultralytics import YOLO
 import torch
 
 def main():
-    video_path = r"C:\Users\Jerwin\Documents\Thesis\ailisto-system-thesis\classification-model\videos\Part 1 to 3.mp4"  # Palitan mo to jer
-    model_path = "yolov8m.pt" 
+    video_path = "classification-model/data/videos/Part 1 to 3.mp4"
+    model_path = "classification-model/yolov8/trained-weights/yolov8m.pt" 
     output_dir = "output/runs/simple"
 
     device = "cuda" if torch.cuda.is_available() else "cpu"
@@ -15,12 +15,12 @@ def main():
     results = model.predict(
         source=video_path,
         save=True,          # saves output video with boxes
-        save_txt=False,     # set True if you want txt labels
-        conf=0.25,          # confidence threshold
-        iou=0.5,            # IoU threshold
+        save_txt=False,     
+        conf=0.25,          
+        iou=0.5,            
         device=device,
         project=output_dir,
-        name="simple_test"  #kaya simple kasi wala pang cue modules, tas yung runYoloSimple2.py baseline yolov8 din, itrtry idetect each cue module ng wlang embedded cue module na pangdetect separately gets mo ba jermanno
+        name="simple_test"  
     )
 
     print("Inference completed successfully.")
