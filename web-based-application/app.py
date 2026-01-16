@@ -1,4 +1,5 @@
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template, jsonify, Response
+from pipelines.video_stream import generate_frames
 
 app = Flask(__name__)
 
@@ -26,5 +27,12 @@ def settings():
 def about():
     return render_template("about.html")
 
+@app.route("/video_feed")
+def video_feed():
+    return Response(generate_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
+
+
 if __name__ == "__main__":
     app.run(debug=True)
+
+    

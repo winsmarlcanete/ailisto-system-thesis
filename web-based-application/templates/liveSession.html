@@ -41,6 +41,8 @@
         </div>
         <div>
             <video id="annotated-video" autoplay></video>
+            <img src="/video_feed" width="800" />
+
         </div>
         <h2>Live Attention Summary</h2>
         <div class="content-box">
@@ -54,6 +56,11 @@
                 <li><b>Detected Students:</b> <span id="detected-students">0</span> students</li>
             </ul>
         </div>
+        <h2>Event Logs</h2>
+        <div class="content-box">
+            <ul id="event-logs">
+                <!-- Event logs will be appended here -->
+            </ul>
         <script src="{{ url_for('static', filename='js/camera.js') }}"></script>
         <script src="{{ url_for('static', filename='js/session-controls.js') }}"></script>
     </div>
