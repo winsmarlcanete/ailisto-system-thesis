@@ -37,12 +37,15 @@
             <button id="start-btn" class="btn" disabled>Start</button>
             <button id="pause-btn" class="btn" disabled>Pause</button>
             <button id="end-btn" class="btn" disabled>End</button>
-            <button id="save-btn" class="btn" disabled>Save</button>
         </div>
-        <div>
+        <h2>Annotated Video Feed</h2>
+        <div class="video-container">
             <video id="annotated-video" autoplay></video>
-            <img src="/video_feed" width="800" />
-
+            <img id="annotated-video-recorded"
+                src=""
+                height="700"
+                width="350"
+                style="display: none;" />
         </div>
         <h2>Live Attention Summary</h2>
         <div class="content-box">
@@ -55,6 +58,11 @@
                 <li><b>Lowest Attention:</b> <span id="lowest-attention">0</span> students</li>
                 <li><b>Detected Students:</b> <span id="detected-students">0</span> students</li>
             </ul>
+        </div>
+        <h2>Attention Distribution Over Time</h2>
+        <div class="content-box">
+            <p>This visualization presents a real-time line graph illustrating the temporal distribution of student attention levels during a class session.</p>
+            <img src="{{ url_for('static', filename='images/Chart.png') }}" width="800"/>
         </div>
         <h2>Event Logs</h2>
         <div class="content-box">

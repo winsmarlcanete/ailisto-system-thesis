@@ -2,6 +2,11 @@ import cv2
 import mediapipe as mp
 from ultralytics import YOLO
 import os
+import time
+
+STREAM_ACTIVE = True
+STREAM_PAUSED = False
+
 
 VIDEO_PATH = os.path.abspath("C:/Users/Windows/Desktop/VS Code/ailisto-main/ailisto-system-thesis/classification-model/data/videos/sample_vid.mp4")
 YOLO_MODEL_PATH = "yolov8n.pt"
@@ -34,35 +39,35 @@ pose_options = PoseLandmarkerOptions(
 )
 
 def generate_frames():
-    cap = cv2.VideoCapture(VIDEO_PATH)
-    if not cap.isOpened():
-        print("Cannot open video!")
-    else:
-        print("Video opened successfully")
+    global STREAM_ACTIVE, STREAM_PAUSED
 
-    frame_index = 0
+    cap = cv2.VideoCapture(VIDEO_PATH)
+    fps = cap.get(cv2.CAP_PROP_FPS) or 30
+    frame_delay = 1.0 / fps
 
     with PoseLandmarker.create_from_options(pose_options) as pose_landmarker:
-        while cap.isOpened():
-            ret, frame = cap.read()
-            if not ret:
-                print("End of video or cannot read frame")
-                break
-
-            frame_index += 1
-            if frame_index % 30 == 0:
-                print(f"Processing frame {frame_index}")
-
-            # Encode as JPEG
-            try:
-                _, buffer = cv2.imencode(".jpg", frame)
-            except Exception as e:
-                print("ERROR encoding frame:", e)
+        while cap.isOpened() and STREAM_ACTIVE:
+            if STREAM_PAUSED:
+                time.sleep(0.1)
                 continue
 
+            ret, frame = cap.read()
+            if not ret:
+                
+                break
+
+            _, buffer = cv2.imencode(".jpg", frame)
             frame_bytes = buffer.tobytes()
-            yield (b'--frame\r\n'
-                   b'Content-Type: image/jpeg\r\n\r\n' + frame_bytes + b'\r\n')
+
+            yield (
+                b"--frame\r\n"
+                b"Content-Type: image/jpeg\r\n\r\n" +
+                frame_bytes + b"\r\n"
+            )
+
+            time.sleep(frame_delay)
 
     cap.release()
+
+
 

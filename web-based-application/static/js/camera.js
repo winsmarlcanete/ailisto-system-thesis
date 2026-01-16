@@ -38,6 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
         try {
             await getUserMedia();
             selectBtn.style.display = 'none';
+            startBtn.disabled = false;
             cameraSelect.style.display = 'block';
             document.querySelector('.video-container').style.display = 'block';
             await populateCameraOptions();
