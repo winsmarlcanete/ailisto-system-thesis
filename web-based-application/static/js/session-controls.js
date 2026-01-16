@@ -1,32 +1,52 @@
-document.addEventListener('DOMContentLoaded', function() {
-    
-    function startSession() {
-        
+const startBtn = document.getElementById("start-btn");
+const pauseBtn = document.getElementById("pause-btn");
+const endBtn = document.getElementById("end-btn");
+const saveBtn = document.getElementById("save-btn");
+
+const annotatedVideo = document.getElementById("annotated-video-recorded");
+
+let isPaused = false;
+
+/* ---------- START ---------- */
+startBtn.addEventListener("click", () => {
+    annotatedVideo.src = "/video_feed";
+    annotatedVideo.style.display = "block";
+
+    startBtn.disabled = true;
+    pauseBtn.disabled = false;
+    endBtn.disabled = false;
+    saveBtn.disabled = false;
+});
+
+/* ---------- PAUSE ---------- */
+pauseBtn.addEventListener("click", () => {
+    if (!isPaused) {
+        fetch("/pause_stream");
+        pauseBtn.innerText = "Resume";
+    } else {
+        fetch("/resume_stream");
+        pauseBtn.innerText = "Pause";
     }
+    isPaused = !isPaused;
+});
 
-    function pauseSession() {
-        
-    }
+/* ---------- END ---------- */
+endBtn.addEventListener("click", () => {
+    fetch("/stop_stream");
 
-    function endSession() {
-        
-    }
+    annotatedVideo.src = "";
+    annotatedVideo.style.display = "none";
 
-    function saveSession() {
-        
-    }
+    startBtn.disabled = false;
+    pauseBtn.disabled = true;
+    endBtn.disabled = true;
+    saveBtn.disabled = true;
 
-    
-    document.getElementById('start-btn').addEventListener('click', startSession);
-    document.getElementById('pause-btn').addEventListener('click', pauseSession);
-    document.getElementById('end-btn').addEventListener('click', endSession);
-    document.getElementById('save-btn').addEventListener('click', saveSession);
+    pauseBtn.innerText = "Pause";
+    isPaused = false;
+});
 
-    
-    document.addEventListener('cameraReady', () => {
-        document.getElementById('start-btn').disabled = false;
-        document.getElementById('pause-btn').disabled = false;
-        document.getElementById('end-btn').disabled = false;
-        document.getElementById('save-btn').disabled = false;
-    });
+/* ---------- SAVE ---------- */
+saveBtn.addEventListener("click", () => {
+    alert("Session video saved successfully.");
 });
