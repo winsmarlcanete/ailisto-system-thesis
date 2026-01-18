@@ -6,6 +6,14 @@
     <title>Live Session - Ai-Listo</title>
     <meta name="description" content="Live session page for Ai-Listo: An AI-powered system for student detection and analysis using advanced computer vision technology.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    
     <link rel="stylesheet" href="{{ url_for('static', filename='css/sidebar.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/button.css') }}">
@@ -14,15 +22,15 @@
 <body>
     <div class="sidebar">
         <div class="ailisto-sidebar-title">Ai-Listo</div>
-        <a class="active" href="/liveSession">Live Session</a>
         <a href="/">Dashboard</a>
+        <a class="active" href="/live-session">Live Session</a>
         <a href="/history">History</a>
         <a href="/profile">Profile</a>
         <a href="/settings">Settings</a>
         <a href="/about">About</a>
     </div>
 
-    <h1 class="page-title">Live Session</h1>
+    <p class="page-title">Live Session</p>
     <div class="content">
         <div>
             <button id="select-camera-btn" class="btn">Select Camera</button>
@@ -44,7 +52,7 @@
             <img src="/video_feed" width="800" />
 
         </div>
-        <h2>Live Attention Summary</h2>
+        <p class="sub-title">Live Attention Summary</p>
         <div class="content-box">
             <ul>
                 <li><b>Class Attention:</b> <span id="class-attention">0</span>%</li>
@@ -56,7 +64,8 @@
                 <li><b>Detected Students:</b> <span id="detected-students">0</span> students</li>
             </ul>
         </div>
-        <h2>Event Logs</h2>
+        
+        <p class="sub-title">Event Logs</p>
         <div class="content-box">
             <ul id="event-logs">
                 <!-- Event logs will be appended here -->

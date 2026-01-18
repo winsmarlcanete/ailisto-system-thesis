@@ -1,77 +1,118 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>Ai-Listo</title>
-        <meta name="description" content="Ai-Listo: An AI-powered system for student detection and analysis using advanced computer vision technology.">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/sidebar.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    </head>
-    <body>
-        
+  <head>
+    <meta charset="utf-8" />
+    <title>Ai-Listo</title>
+    <meta
+      name="description"
+      content="Ai-Listo: An AI-powered system for student detection and analysis using advanced computer vision technology."
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/sidebar.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/base.css') }}"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+
+  <body>
     <div class="sidebar">
-        <div class="ailisto-sidebar-title">Ai-Listo</div>
-        <a href="/liveSession">Live Session</a>
-        <a class="active" href="/">Dashboard</a>
-        <a href="/history">History</a>
-        <a href="/profile">Profile</a>
-        <a href="/settings">Settings</a>
-        <a href="/about">About</a>
+      <div class="ailisto-sidebar-title">Ai-Listo</div>
+      <a class="active" href="/">Dashboard</a>
+      <a href="/live-session">Live Session</a>
+      <a href="/history">History</a>
+      <a href="/profile">Profile</a>
+      <a href="/settings">Settings</a>
+      <a href="/about">About</a>
     </div>
 
-    <h1 class="page-title">Dashboard</h1>
+    <p class="page-title">Dashboard</p>
     <div class="content">
-        <h2>Attention Distribution Over Time</h2>
-        <div class="content-box">
-            <p>This visualization presents a real-time line graph illustrating the temporal distribution of student attention levels during a class session.</p>
-            <img src="{{ url_for('static', filename='images/Chart.png') }}" width="800"/>
+      <p class="sub-title">Attention Distribution Over Time</p>
+      <div class="content-box">
+        <p>
+          This visualization presents a real-time line graph illustrating the
+          temporal distribution of student attention levels during a class
+          session.
+        </p>
+        <div class="content-image">
+          <img
+            src="{{ url_for('static', filename='images/Chart.png') }}"
+            width="800"
+          />
         </div>
-        <h2>Cue Breakdown</h2>
-        <div class="content-box">
-            <p>The pie chart below breaks down the various cues used to assess student attention, providing insights into the factors influencing engagement levels.</p>
-            <canvas id="cuePieChart" width="400" height="400"></canvas>
-        <script>
-            // Get the canvas element
-            const ctx = document.getElementById('cuePieChart').getContext('2d');
+      </div>
 
-            // Create the pie chart
-            const cuePieChart = new Chart(ctx, {
-                type: 'pie',
-                data: {
-                    labels: ['Head Pose', 'Posture', 'Temporal Stability', 'Context Alignment'], // Example labels
-                    datasets: [{
-                        label: 'Cue Breakdown',
-                        data: [40, 25, 20, 15], // Example data
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.7)',
-                            'rgba(54, 162, 235, 0.7)',
-                            'rgba(255, 206, 86, 0.7)',
-                            'rgba(75, 192, 192, 0.7)'
-                        ],
-                        borderColor: [
-                            'rgba(255, 99, 132, 1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 206, 86, 1)',
-                            'rgba(75, 192, 192, 1)'
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    plugins: {
-                        legend: {
-                            position: 'top',
-                        },
-                        title: {
-                            display: true,
-                            text: 'Cue Breakdown Pie Chart'
-                        }
-                    }
-                }
-            });
-        </script>
-    </body>
+      <p class="sub-title">Cue Breakdown</p>
+      <div class="content-box">
+        <p>
+          The pie chart below breaks down the various cues used to assess
+          student attention, providing insights into the factors influencing
+          engagement levels.
+        </p>
+        <canvas id="cuePieChart" width="100" height="100"></canvas>
+      </div>
+    </div>
+
+    <script>
+      // Get the canvas element
+      const ctx = document.getElementById("cuePieChart").getContext("2d");
+
+      // Create the pie chart
+      const cuePieChart = new Chart(ctx, {
+        type: "pie",
+        data: {
+          labels: [
+            "Head Pose",
+            "Posture",
+            "Temporal Stability",
+            "Context Alignment",
+          ], // Example labels
+          datasets: [
+            {
+              label: "Cue Breakdown",
+              data: [40, 25, 20, 15], // Example data
+              backgroundColor: [
+                "rgba(255, 99, 132, 0.7)",
+                "rgba(54, 162, 235, 0.7)",
+                "rgba(255, 206, 86, 0.7)",
+                "rgba(75, 192, 192, 0.7)",
+              ],
+              borderColor: [
+                "rgba(255, 99, 132, 1)",
+                "rgba(54, 162, 235, 1)",
+                "rgba(255, 206, 86, 1)",
+                "rgba(75, 192, 192, 1)",
+              ],
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: {
+              position: "top",
+            },
+            title: {
+              display: true,
+              text: "Cue Breakdown Pie Chart",
+            },
+          },
+        },
+      });
+    </script>
+  </body>
 </html>
