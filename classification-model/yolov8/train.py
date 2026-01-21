@@ -16,12 +16,12 @@ def train_yolov8():
     # 2. Train the model on a custom dataset
     # -------------------------------------------------
     model.train(
-        data="dataset/data.yaml",  # dataset configuration file
+        data="C:\\Users\\Jerwin\\Documents\\Thesis\\ailisto-system-thesis\\classification-model\\data\\dataset\\data.yaml",  # dataset configuration file
         epochs=100,                # number of training epochs
         imgsz=640,                 # image size
-        batch=16,                  # batch size
-        device=0,                  # 0 = GPU, "cpu" = CPU
-        workers=8,                 # dataloader workers
+        batch=8,                   # batch size (reduced for CPU training)
+        device="cpu",              # 0 = GPU, "cpu" = CPU
+        workers=4,                 # dataloader workers (reduced for CPU)
         project="Ai-Listo",        # project folder
         name="yolov8_attention",   # experiment name
         pretrained=True,

@@ -1,29 +1,46 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-
-    <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" />
     <title>Settings- Ai-Listo</title>
-    <meta name="description" content="Settings page for Ai-Listo: An AI-powered system for student detection and analysis using advanced computer vision technology.">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/sidebar.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
-</head>
-<body>
+    <meta
+      name="description"
+      content="Settings page for Ai-Listo: An AI-powered system for student detection and analysis using advanced computer vision technology."
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/sidebar.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/base.css') }}"
+    />
+  </head>
+
+  <body>
     <div class="sidebar">
-        <div class="ailisto-sidebar-title">Ai-Listo</div>
-        <a href="/liveSession">Live Session</a>
-        <a href="/">Dashboard</a>
-        <a href="/history">History</a>
-        <a href="/profile">Profile</a>
-        <a class="active" href="/settings">Settings</a>
-        <a href="/about">About</a>
+      <div class="ailisto-sidebar-title">Ai-Listo</div>
+      <a href="/">Dashboard</a>
+      <a href="/live-session">Live Session</a>
+      <a href="/history">History</a>
+      <a href="/profile">Profile</a>
+      <a class="active" href="/settings">Settings</a>
+      <a href="/about">About</a>
     </div>
 
-    <h1 class="page-title">Settings Page</h1>
+    <p class="page-title">Settings Page</p>
     <div class="content">
-        <h2>Settings Content</h2>
-        <p>This is the settings page content.</p>
+      <p class="sub-title">Settings Content</p>
+      <p>This is the settings page content.</p>
     </div>
-</body>
+  </body>
 </html>

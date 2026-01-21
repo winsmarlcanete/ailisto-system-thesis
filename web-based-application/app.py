@@ -1,6 +1,6 @@
 from flask import Flask, render_template, jsonify, Response
-from pipelines.video_stream import generate_frames
-import pipelines.video_stream as stream
+# from pipelines.video_stream import generate_frames
+# import pipelines.video_stream as stream
 
 app = Flask(__name__)
 
@@ -8,9 +8,9 @@ app = Flask(__name__)
 def home():
     return render_template("index.html")
 
-@app.route("/liveSession")
+@app.route("/live-session")
 def liveSession():
-    return render_template("liveSession.html")
+    return render_template("live-session.html")
 
 @app.route("/history")
 def history():
