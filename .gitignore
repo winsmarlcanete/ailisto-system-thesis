@@ -1,6 +1,8 @@
 #Ignore dataset folders
 
 classification-model/data/videos
+classification-model/data
+classification-model/output
 
 # Ignore virtual environment folder
 .venv/

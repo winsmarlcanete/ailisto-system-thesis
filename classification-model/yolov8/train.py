@@ -22,7 +22,7 @@ def train_yolov8():
         batch=8,                   # batch size (reduced for CPU training)
         device="cpu",              # 0 = GPU, "cpu" = CPU
         workers=4,                 # dataloader workers (reduced for CPU)
-        project="Ai-Listo",        # project folder
+        project="new-dataset-training",        # project folder
         name="yolov8_attention",   # experiment name
         pretrained=True,
         optimizer="AdamW",
