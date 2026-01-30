@@ -1,6 +1,0 @@
-path: C:/Users/Jerwin/Documents/Thesis/ailisto-system-thesis/classification-model/data/dataset
-train: images/train
-val: images/val
-
-nc: 2
-names: ["attentive", "inattentive"]
